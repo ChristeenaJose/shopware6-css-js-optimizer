@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>CSS Optimization</title>
+
+        <input-field type="bool">
+        <name>enabled</name>
+        <label>Enable Critical CSS</label>
+        <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="textarea">
+        <name>categoryCss</name>
+        <label>Critical CSS – Category pages</label>
+        </input-field>
+
+        <input-field type="textarea">
+        <name>productCss</name>
+        <label>Critical CSS – Product pages</label>
+        </input-field>
+
+        <input-field type="textarea">
+        <name>otherCss</name>
+        <label>Critical CSS – Other pages</label>
+        </input-field>
+    </card>
+
+    <card>
+        <title>JavaScript Optimization</title>
+
+        <input-field type="bool">
+        <name>delayTracking</name>
+        <label>Delay tracking scripts</label>
+        <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+        <name>trackingDelaySeconds</name>
+        <label>Tracking delay (seconds)</label>
+        <defaultValue>3</defaultValue>
+        </input-field>
+    </card>
+
+</config>

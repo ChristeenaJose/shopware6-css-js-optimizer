@@ -1,0 +1,27 @@
+{
+    "name": "css-js-optimizer/css-js-optimizer",
+    "description": "css-js-optimizer/css-js-optimizer",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.7.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "CssJsOptimizer\\CssJsOptimizer",
+        "label": {
+            "de-DE": "SEO - Css & Js optimizer",
+            "en-GB": "SEO - Css & Js optimizer"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "CssJsOptimizer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CssJsOptimizer\\Tests\\": "tests/"
+        }
+    }
+}

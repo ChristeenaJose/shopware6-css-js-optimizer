@@ -1,0 +1,47 @@
+{# ============================= #}
+{# Critical CSS inline (hybrid)  #}
+{# ============================= #}
+<style id="critical-css">
+{% if criticalCssOverride is defined and criticalCssOverride is not empty %}
+    {{ criticalCssOverride|raw }}
+{% elseif criticalCssFile is defined %}
+    {% include criticalCssFile %}
+{% endif %}
+</style>
+
+
+{# ============================= #}
+{# Async CSS loader              #}
+{# ============================= #}
+{% for stylesheet in theme_config('assets.css') %}
+    <link rel="preload"
+          as="style"
+          href="{{ asset(stylesheet) }}"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ asset(stylesheet) }}">
+    </noscript>
+{% endfor %}
+
+
+{# ============================= #}
+{# Tracking scripts delay loader #}
+{# ============================= #}
+{% if delayTracking is defined and delayTracking %}
+<script>
+(function() {
+    function loadDelayedScripts() {
+        document.querySelectorAll('script[data-delay-src]').forEach(function(el) {
+            var s = document.createElement('script');
+            s.src = el.getAttribute('data-delay-src');
+            s.async = true;
+            document.head.appendChild(s);
+            el.remove();
+        });
+    }
+    window.addEventListener('load', function() {
+        setTimeout(loadDelayedScripts, {{ trackingDelay|default(3) * 1000 }});
+    });
+})();
+</script>
+{% endif %}
